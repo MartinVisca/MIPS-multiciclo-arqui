@@ -1,0 +1,5 @@
+Determining compilation order of HDL files.
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.srcs/sources_1/new/P1A.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity reg
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.srcs/sources_1/new/P1A_TB.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity reg_TB_vhd
