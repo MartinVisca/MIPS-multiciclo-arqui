@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="2" Path="C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.xpr">
+<Project Version="7" Minor="2" Path="C:/Users/sam/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="fec7a0c71bb9458db5067d3271e2e154"/>
@@ -17,6 +17,12 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sources_1/new/P1C.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/new/P1A.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -41,12 +47,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/new/P1C.vhd">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/new/P1C_TB.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -59,10 +59,45 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/../../../../Desktop/Facu/Arqui I/Laboratorio/Practico 2/Material_Lab2/Material_Lab2/Multicycle_MIPS.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../../../Desktop/Facu/Arqui I/Laboratorio/Practico 2/Material_Lab2/Material_Lab2/ControlUnit.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../../../Desktop/Facu/Arqui I/Laboratorio/Practico 2/Material_Lab2/Material_Lab2/Pipelined_MIPS_tb.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../../../Desktop/Facu/Arqui I/Laboratorio/Practico 2/Material_Lab2/Material_Lab2/memory.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../../../Desktop/Facu/Arqui I/Laboratorio/Practico 2/Material_Lab2/Material_Lab2/Pipelined_MIPS.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../../../Desktop/Facu/Arqui I/Laboratorio/Practico 2/Material_Lab2/Material_Lab2/Multicycle_MIPS_tb.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="reg_TB_vhd"/>
-        <Option Name="TopAutoSet" Val="TRUE"/>
+        <Option Name="TopModule" Val="ALU"/>
       </Config>
     </FileSet>
     <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
@@ -75,9 +110,8 @@
       <Filter Type="Srcs"/>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="reg_TB_vhd"/>
+        <Option Name="TopModule" Val="ALU"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
-        <Option Name="TopAutoSet" Val="TRUE"/>
         <Option Name="SrcSet" Val="sources_1"/>
       </Config>
     </FileSet>
