@@ -59,37 +59,37 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../../Desktop/Facu/Arqui I/Laboratorio/Practico 2/Material_Lab2/Material_Lab2/Multicycle_MIPS.vhd">
+      <File Path="$PSRCDIR/sources_1/new/Multicycle_MIPS.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../../Desktop/Facu/Arqui I/Laboratorio/Practico 2/Material_Lab2/Material_Lab2/ControlUnit.vhd">
+      <File Path="$PSRCDIR/sources_1/new/ControlUnit.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../../Desktop/Facu/Arqui I/Laboratorio/Practico 2/Material_Lab2/Material_Lab2/Pipelined_MIPS_tb.vhd">
+      <File Path="$PSRCDIR/sources_1/new/Pipelined_MIPS.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../../Desktop/Facu/Arqui I/Laboratorio/Practico 2/Material_Lab2/Material_Lab2/memory.vhd">
+      <File Path="$PSRCDIR/sources_1/new/Multicycle_MIPS_tb.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../../Desktop/Facu/Arqui I/Laboratorio/Practico 2/Material_Lab2/Material_Lab2/Pipelined_MIPS.vhd">
+      <File Path="$PSRCDIR/sources_1/new/memory.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../../Desktop/Facu/Arqui I/Laboratorio/Practico 2/Material_Lab2/Material_Lab2/Multicycle_MIPS_tb.vhd">
+      <File Path="$PSRCDIR/sources_1/new/Pipelined_MIPS_tb.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>

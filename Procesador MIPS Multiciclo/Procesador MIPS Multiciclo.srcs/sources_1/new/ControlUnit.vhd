@@ -1,25 +1,5 @@
----------------------------------------------------------------------------------------------------
---
--- Title       : ControlUnit.vhd
--- Design      : Control Unit Template for Multicycle MIPS
--- Author      : L. Leiva
--- Company     : UNICEN
---
---
----------------------------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity ControlUnit is
     Port ( clk : in STD_LOGIC;
@@ -48,26 +28,160 @@ begin
 comb_process: process(OpCode, state)
 begin
     case state is 
-        when "000" =>
-        -- debe completarse las señales de control para este estado 
-               PCSource <= 
-               TargetWrite <= 
-               AluOp <= 
-               AluSelA <= 
-               AluSelB <= 
-               RegWrite <= 
-               RegDst <= 
-               PCWrite <= 
-               PCWriteCond <=
-               IorD <=
-               MemRead <=
-               MemWrite <=
-               IRWrite <=
-               MemToReg <=
-			   next_state <= 	
-        when "001" =>
-        -- debe completarse las señales de control para este estado, y para el resto de los estados
-        
+        when "0000" =>
+               PCSource <= '0';
+               TargetWrite <= '0';
+               AluOp <= "00";
+               AluSelA <= '0';
+               AluSelB <= "01";
+               RegWrite <= '0';
+               RegDst <= '0';
+               PCWrite <= '1';
+               PCWriteCond <= '0';
+               IorD <= '0';
+               MemRead <= '1';
+               MemWrite <= '0';
+               IRWrite <= '1';
+               MemToReg <= '0';
+			   next_state <= "0001"; 	
+        when "0001" =>
+               PCSource <= '0';
+               TargetWrite <= '0';
+               AluOp <= "00";
+               AluSelA <= '0';
+               AluSelB <= "11";
+               RegWrite <= '0';
+               RegDst <= '0';
+               PCWrite <= '0';
+               PCWriteCond <= '0';
+               IorD <= '0';
+               MemRead <= '0';
+               MemWrite <= '0';
+               IRWrite <= '0';
+               MemToReg <= '0';
+               if (OpCode = "100011" or OpCode = "101011") then
+                    next_state <= "0010";
+               elsif (OpCode = "000000") then
+                    next_state <= "0110";
+               else
+                    next_state <= "1000";
+               end if;
+        when "0010" =>
+               PCSource <= '0';
+               TargetWrite <= '0';
+               AluOp <= "00";
+               AluSelA <= '1';
+               AluSelB <= "10";
+               RegWrite <= '0';
+               RegDst <= '0';
+               PCWrite <= '0';
+               PCWriteCond <= '0';
+               IorD <= '0';
+               MemRead <= '0';
+               MemWrite <= '0';
+               IRWrite <= '0';
+               MemToReg <= '0';
+               if (OpCode = "100011") then
+                    next_state <= "0011";
+               else
+                    next_state <= "0101"; 
+               end if;   
+        when "0011" =>
+               PCSource <= '0';
+               TargetWrite <= '0';
+               AluOp <= "00";
+               AluSelA <= '0';
+               AluSelB <= "00";
+               RegWrite <= '0';
+               RegDst <= '0';
+               PCWrite <= '0';
+               PCWriteCond <= '0';
+               IorD <= '1';
+               MemRead <= '1';
+               MemWrite <= '0';
+               IRWrite <= '0';
+               MemToReg <= '0';
+               next_state <= "0100";
+        when "0100" =>
+               PCSource <= '0';
+               TargetWrite <= '0';
+               AluOp <= "00";
+               AluSelA <= '0';
+               AluSelB <= "00";
+               RegWrite <= '1';
+               RegDst <= '1';
+               PCWrite <= '0';
+               PCWriteCond <= '0';
+               IorD <= '0';
+               MemRead <= '0';
+               MemWrite <= '0';
+               IRWrite <= '0';
+               MemToReg <= '0';
+			   next_state <= "0000"; 	
+        when "0101" =>
+               PCSource <= '0';
+               TargetWrite <= '0';
+               AluOp <= "00";
+               AluSelA <= '0';
+               AluSelB <= "00";
+               RegWrite <= '0';
+               RegDst <= '0';
+               PCWrite <= '0';
+               PCWriteCond <= '0';
+               IorD <= '1';
+               MemRead <= '0';
+               MemWrite <= '1';
+               IRWrite <= '0';
+               MemToReg <= '0';
+               next_state <= "0000";
+        when "0110" =>
+               PCSource <= '0';
+               TargetWrite <= '0';
+               AluOp <= "10";
+               AluSelA <= '1';
+               AluSelB <= "00";
+               RegWrite <= '0';
+               RegDst <= '0';
+               PCWrite <= '0';
+               PCWriteCond <= '0';
+               IorD <= '0';
+               MemRead <= '0';
+               MemWrite <= '0';
+               IRWrite <= '0';
+               MemToReg <= '0';
+               next_state <= "0111";   
+        when "0111" =>
+               PCSource <= '0';
+               TargetWrite <= '0';
+               AluOp <= "00";
+               AluSelA <= '0';
+               AluSelB <= "00";
+               RegWrite <= '1';
+               RegDst <= '1';
+               PCWrite <= '0';
+               PCWriteCond <= '0';
+               IorD <= '0';
+               MemRead <= '0';
+               MemWrite <= '0';
+               IRWrite <= '0';
+               MemToReg <= '0';
+               next_state <= "0000";
+        when "1000" =>
+               PCSource <= '1';
+               TargetWrite <= '0';
+               AluOp <= "01";
+               AluSelA <= '1';
+               AluSelB <= "00";
+               RegWrite <= '0';
+               RegDst <= '0';
+               PCWrite <= '0';
+               PCWriteCond <= '1';
+               IorD <= '0';
+               MemRead <= '0';
+               MemWrite <= '0';
+               IRWrite <= '0';
+               MemToReg <= '0';
+               next_state <= "0000";
         when others =>
                PCSource <= '0'; 
                TargetWrite <='0';  
@@ -83,7 +197,7 @@ begin
                MemWrite <= '0'; 
                IRWrite <= '0'; 
                MemToReg <= '0'; 
-			   next_state <= "000"; 
+			   next_state <= "0000"; 
     end case;  
  end process; 
 
