@@ -2,7 +2,6 @@
 library IEEE;
 
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
@@ -18,6 +17,7 @@ end ALU;
 
 architecture Behavioral of ALU is
     signal res_alu : STD_LOGIC_VECTOR (31 DOWNTO 0);
+    signal c : unsigned (31 downto 0);
 begin
     process (control, a, b)
     begin
@@ -37,7 +37,8 @@ begin
                     res_alu <= x"00000000";
                 end if;
             when "100" =>
-                res_alu <= b sla 16;
+                c <= unsigned(b);
+                res_alu <= std_logic_vector(c sll 16);
             when others =>
                 res_alu <= x"00000000";
         end case;
