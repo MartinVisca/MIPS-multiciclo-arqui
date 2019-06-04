@@ -93,13 +93,38 @@ architecture Multicycle_MIPS_arch of Multicycle_MIPS is
      
      --Señal ALU
      signal Zero:               std_logic;
+     signal AluOut:             std_logic_vector (31 downto 0);
      
      --Señal puerta AND
      signal OutAND:             std_logic;
      
+     --Señales Banco de Registros
+     signal outBR1, outBR2  :   std_logic_vector (31 downto 0);
+     
+     --Señales registro de instrucciones
+     signal outmemory   :   std_logic_vector (31 downto 0);
+     signal outIRHigh   :   std_logic_vector (5 downto 0);
+     signal outIRLow    :   std_logic_vector (25 downto 0);
+     
 begin 
 -- procesos explicitos, implicitos e instanciacion de componentes 
-
+    
+    --Registro PC
+    PCReg : process(Clk,Reset)
+    begin
+        if (Reset = '1') then
+            PCout <= x"00000000";
+        elsif rising_edge(Clk) then
+            if (PCControl = '1') then
+                PCout <= PCin;
+            end if;
+        end if;
+    end process;
+    
+    --Mux entre PC y Memory
+    OutMuxMem <= AluOut when IorD = '1' else PCout;
+			
+			
     
 
 end Multicycle_MIPS_arch;

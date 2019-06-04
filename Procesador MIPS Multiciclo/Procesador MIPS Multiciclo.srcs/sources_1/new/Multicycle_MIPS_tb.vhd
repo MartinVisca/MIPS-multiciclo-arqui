@@ -79,8 +79,8 @@ begin
 
 	Instruction_Mem_inst : memory
 	generic map (
-	  C_ELF_FILENAME_LOW     => "program1",
-	  C_ELF_FILENAME_HIGH     => "data",
+	  C_ELF_FILENAME_LOW     => "program1", --Hay que poner la direccion donde se encuentra el archivo
+	  C_ELF_FILENAME_HIGH     => "data", --Hay que poner la direccion donde se encuentra el archivo
       C_MEM_SIZE         => 2048,
       C_MEM_HIGH_OFFSET => 1024
    )
