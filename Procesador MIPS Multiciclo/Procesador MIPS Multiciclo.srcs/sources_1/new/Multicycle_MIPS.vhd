@@ -51,6 +51,29 @@ architecture Multicycle_MIPS_arch of Multicycle_MIPS is
      );
      end component;
      
+     --Unidad de Control
+     component ControlUnit
+     Port (
+        clk : in STD_LOGIC;
+        Reset : in STD_LOGIC;
+        OpCode:  in STD_LOGIC_VECTOR(5 downto 0);
+        PCSource: out STD_LOGIC;
+        TargetWrite: out STD_LOGIC;
+        AluOp: out STD_LOGIC_VECTOR(1 downto 0);
+        AluSelA: out STD_LOGIC;
+        AluSelB: out STD_LOGIC_VECTOR(1 downto 0);
+        RegWrite: out STD_LOGIC;
+        RegDst: out STD_LOGIC;
+        PCWrite: out STD_LOGIC;
+        PCWriteCond: out STD_LOGIC;
+        IorD: out STD_LOGIC;
+        MemRead: out STD_LOGIC;
+        MemWrite: out STD_LOGIC;
+        IRWrite: out STD_LOGIC;
+        MemToReg: out STD_LOGIC
+     );
+     end component;
+     
      --Señales de control
      signal PCWrite:            std_logic;
      signal PCWriteCond:        std_logic;

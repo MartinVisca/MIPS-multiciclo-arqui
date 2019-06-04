@@ -22,7 +22,7 @@ entity ControlUnit is
 end ControlUnit;
 
 architecture Behavioral of ControlUnit is
-    signal state, next_state: std_logic_vector(2 downto 0); 
+    signal state, next_state: std_logic_vector(3 downto 0); 
 begin
 
 comb_process: process(OpCode, state)
@@ -59,13 +59,10 @@ begin
                MemWrite <= '0';
                IRWrite <= '0';
                MemToReg <= '0';
-               if (OpCode = "100011" or OpCode = "101011") then
-                    next_state <= "0010";
-               elsif (OpCode = "000000") then
-                    next_state <= "0110";
-               else
-                    next_state <= "1000";
-               end if;
+               next_state <= "0010" when OpCode = "100011" else
+                             "0010" when OpCode = "101011" else
+                             "0110" when OpCode = "000000" else
+                             "1000";
         when "0010" =>
                PCSource <= '0';
                TargetWrite <= '0';
@@ -81,11 +78,8 @@ begin
                MemWrite <= '0';
                IRWrite <= '0';
                MemToReg <= '0';
-               if (OpCode = "100011") then
-                    next_state <= "0011";
-               else
-                    next_state <= "0101"; 
-               end if;   
+               next_state <= "0011" when OpCode = "100011" else
+                             "0101";
         when "0011" =>
                PCSource <= '0';
                TargetWrite <= '0';
