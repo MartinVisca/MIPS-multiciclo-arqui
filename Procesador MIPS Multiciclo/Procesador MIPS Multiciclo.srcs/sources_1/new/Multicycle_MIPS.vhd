@@ -52,24 +52,50 @@ architecture Multicycle_MIPS_arch of Multicycle_MIPS is
      end component;
      
      --Señales de control
-     signal PCWrite:        out std_logic;
-     signal PCWriteCond:    out std_logic;
-     signal IorD:           out std_logic;
-     signal MemRead:        out std_logic;
-     signal MemWrite:       out std_logic;
-     signal IRWrite:        out std_logic;
-     signal MemToReg:       out std_logic;
-     signal PCSource:       out std_logic;
-     signal TargetWrite:    out std_logic;
-     signal ALUOp:          out std_logic_vector (1 downto 0);
-     signal ALUSelB:        out std_logic_vector (1 downto 0);
-     signal ALUSelA:        out std_logic;
-     signal RegWrite:       out std_logic;
-     signal RegDst:         out std_logic;
+     signal PCWrite:            std_logic;
+     signal PCWriteCond:        std_logic;
+     signal IorD:               std_logic;
+     signal MemRead:            std_logic;
+     signal MemWrite:           std_logic;
+     signal IRWrite:            std_logic;
+     signal MemToReg:           std_logic;
+     signal PCSource:           std_logic;
+     signal TargetWrite:        std_logic;
+     signal ALUOp:              std_logic_vector (1 downto 0);
+     signal ALUSelB:            std_logic_vector (1 downto 0);
+     signal ALUSelA:            std_logic;
+     signal RegWrite:           std_logic;
+     signal RegDst:             std_logic;
      
+     --Señales del contador de programa
+     signal PCin:               std_logic_vector (31 downto 0);
+     signal PCout:              std_logic_vector (31 downto 0);
+     signal PCControl:          std_logic;
      
+     --Señales de los mux
+     signal OutMuxMem:          std_logic_vector (31 downto 0); 
+     signal OutMuxBancoWrReg:   std_logic_vector (4 downto 0);
+     signal OutMuxBancoWrDt:    std_logic_vector (31 downto 0);
+     signal OutMuxALUx2:        std_logic_vector (31 downto 0);
+     signal OutMuxALUx4:        std_logic_vector (31 downto 0);
      
+     --Señal de la extension de signo
+     signal OutSignExtend:      std_logic_vector (31 downto 0);
      
+     --Señal target
+     signal OutTarget:          std_logic_vector (31 downto 0);
+     
+     --Señal ALU control
+     signal OutALUControl:      std_logic_vector (2 downto 0);
+     
+     --Señal Shift left 2
+     signal OutSL2:             std_logic_vector (31 downto 0);
+     
+     --Señal ALU
+     signal Zero:               std_logic;
+     
+     --Señal puerta AND
+     signal OutAND:             std_logic;
      
 begin 
 -- procesos explicitos, implicitos e instanciacion de componentes 
