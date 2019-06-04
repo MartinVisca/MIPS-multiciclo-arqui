@@ -1,3 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  "../../../Procesador MIPS Multiciclo.srcs/sources_1/new/P1A.vhd"
-vhdl xil_defaultlib  "../../../Procesador MIPS Multiciclo.srcs/sources_1/new/P1A_TB.vhd"
