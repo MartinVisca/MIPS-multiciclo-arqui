@@ -101,6 +101,7 @@ architecture Multicycle_MIPS_arch of Multicycle_MIPS is
      signal OutMuxBancoWrDt:    std_logic_vector (31 downto 0);
      signal OutMuxALUx2:        std_logic_vector (31 downto 0);
      signal OutMuxALUx4:        std_logic_vector (31 downto 0);
+     signal OutMuxTarget:       std_logic;
      
      --Señal de la extension de signo
      signal OutSignExtend:      std_logic_vector (31 downto 0);
@@ -120,6 +121,9 @@ architecture Multicycle_MIPS_arch of Multicycle_MIPS is
      
      --Señal puerta AND
      signal OutAND:             std_logic;
+     
+     --Señal puerta OR
+     signal OutOr:              std_logic;
      
      --Señales Banco de Registros
      signal outBR1, outBR2  :   std_logic_vector (31 downto 0);
@@ -147,7 +151,18 @@ begin
     --Mux entre PC y Memory
     OutMuxMem <= AluOut when IorD = '1' else PCout;
 			
-			
+	Addr <= OutMuxMem; --Conectados el mux y la memoria de datos
+	RdStb <= MemRead; --Conectada la habilitacion de lectura
+	WrStb <= MemWrite; --Conectada la habilitacion de escritura
+	DataOut <= outBR2; --Salida baja del banco de registros conectada con la escritura del dato en la memoria de datos
+	--DataIn
+	
+	OutOr <= OutAnd or PcWrite; --Conexion de la puerta OR
+	OutAnd <= Zero and PcWriteCond; --Conexion de la puerta AND
+	
+	PCControl <= OutOr; --Entrada del PC igual a la salida de la puerta OR
+    PCin <= OutMuxTarget; --Conexion de la entrada del PC con la siguien direccion en memoria
     
+    OutMuxTarget <= OutTarget when PCSource = '1' else ALUOut; --Multiplexor siguiente al target
 
 end Multicycle_MIPS_arch;
