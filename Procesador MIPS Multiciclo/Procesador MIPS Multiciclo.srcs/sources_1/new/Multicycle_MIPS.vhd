@@ -176,12 +176,29 @@ begin
         zero => Zero
     );
     
-    OutMuxALUx2 <= PCout when ALUSelA = '0' else outBR1;
+    OutMuxALUx2 <= PCout when ALUSelA = '0' else outBR1; --Multiplexor de dos entradas que da la entrada "a" a la ALU
     
-    OutMuxALUx4 <= OutBR2 when ALUSelB = "00" else
+    OutMuxALUx4 <= OutBR2 when ALUSelB = "00" else --Multiplexor de cuatro entradas que da la entrada "b" a la ALU
                    x"4" when ALUSelB = "01" else
                    OutSignExtend when ALUSelB = "10" else
                    OutSL2;
                    
+    --Instanciacion del banco de registros
+    BancoRegistros : Registers port map(
+        clk         => Clk;
+        reset       => Reset;
+        wr          => RegWrite;
+        reg1_rd     => outIRLow (25 downto 21);
+        reg2_rd     => outIRLow (20 downto 16);
+        reg_wr      => OutMuxBancoWrReg;
+        data_wr     => OutMuxBancoWrDt;
+        data1_rd    => outBR1;
+        data2_rd    => outBR2
+    );
+    
+    OutMuxBancoWrReg <= outIRLow (20 downto 16) when RegDst = '0' else outIRLow (15 downto 11); --Multiplexor que da la entrada reg_wr del banco de registros
+    
+    OutMuxBancoWrDt <= AluOut when MemToReg = '0' else DataOut; --Mux que elige entre el resultado de la ALU y el DataOut para darle la entrada a data_wr del banco de registros
+  
 
 end Multicycle_MIPS_arch;
