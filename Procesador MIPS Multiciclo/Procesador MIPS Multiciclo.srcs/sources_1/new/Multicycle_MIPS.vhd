@@ -163,6 +163,25 @@ begin
 	PCControl <= OutOr; --Entrada del PC igual a la salida de la puerta OR
     PCin <= OutMuxTarget; --Conexion de la entrada del PC con la siguien direccion en memoria
     
+    
     OutMuxTarget <= OutTarget when PCSource = '1' else ALUOut; --Multiplexor siguiente al target
+    --Target
+    
+    --Instanciacion de la ALU
+    ALU : ALU port map (
+        a => OutMuxALUx2;
+        b => OutMuxALUx4;
+        control => OutALUControl;
+        resultado => ALUResult;
+        zero => Zero
+    );
+    
+    OutMuxALUx2 <= PCout when ALUSelA = '0' else outBR1;
+    
+    OutMuxALUx4 <= OutBR2 when ALUSelB = "00" else
+                   x"4" when ALUSelB = "01" else
+                   OutSignExtend when ALUSelB = "10" else
+                   OutSL2;
+                   
 
 end Multicycle_MIPS_arch;
