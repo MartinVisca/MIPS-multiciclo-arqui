@@ -200,5 +200,9 @@ begin
     
     OutMuxBancoWrDt <= AluOut when MemToReg = '0' else DataOut; --Mux que elige entre el resultado de la ALU y el DataOut para darle la entrada a data_wr del banco de registros
   
+    --Extensor de signo
+    OutSignExtend <= (x"0000" and outIRLow (15 downto 0)) when (outIRLow (15) = '0') else  (x"FFFF" and outIRLow (15 downto); 
+    --Si el primer bit (desde la derecha) de la entrada es igual a cero, se hace un and entre la instruccion y una mascara inicializada en ceros.
+    --Si es igual a uno, la mascara esta inicializada en FFFF para invertir el numero.
 
 end Multicycle_MIPS_arch;
