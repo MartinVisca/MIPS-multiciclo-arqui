@@ -205,4 +205,37 @@ begin
     --Si el primer bit (desde la derecha) de la entrada es igual a cero, se hace un and entre la instruccion y una mascara inicializada en ceros.
     --Si es igual a uno, la mascara esta inicializada en FFFF para invertir el numero.
 
+    --Instanciacion de ALU Control
+    process (outIRLow (5 downto 0), ALUOp)
+    begin
+        case (ALUOp) is
+            when "10" => --Operaciones tipo R
+                case (outIRLow (5 downto 0)) is
+                    when "100000" => --Suma 
+                        OutALUControl <= "010";
+                    when "100010" => --Resta
+                        OutALUControl <= "110";
+                    when "100100" => --AND
+                        OutALUControl <= "000";
+                    when "100101" => --OR
+                        OutALUControl <= "001";
+                    when "101010" => --Set on less
+                        OutALUControl <= "111";
+                    when others => --Todos los casos restantes
+                        OutALUControl <= "000"; 
+                end case;
+            when "00" => --Operaciones LW y SW
+                case (outIRLow (5 downto 0)) is
+                    when "100011" => --Load word
+                        OutALUControl <= "";
+                    when "101011" => --Store word
+                        OutALUControl <= "";
+                end case;
+            when "01" => --Branch on equal
+                OutALUControl <= "";
+            when others => --Caso 11
+                OutALUControl <= "000";
+        end case;
+    end process;
+    
 end Multicycle_MIPS_arch;
