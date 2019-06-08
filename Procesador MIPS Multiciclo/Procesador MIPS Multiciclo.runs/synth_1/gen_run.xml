@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7k70tfbg676-1" LaunchTime="1559631229">
-  <File Type="RDS-DCP" Name="ALU.dcp"/>
+<GenRun Id="synth_1" LaunchPart="xc7k70tfbg676-1" LaunchTime="1560033218">
+  <File Type="RDS-DCP" Name="Registers.dcp"/>
   <File Type="RUN-CONSTRS" Name="$PDATADIR/runs/synth_1/constrs_in.xml"/>
-  <File Type="RDS-UTIL-PB" Name="ALU_utilization_synth.pb"/>
+  <File Type="RDS-UTIL-PB" Name="Registers_utilization_synth.pb"/>
   <File Type="RUN-SRCS" Name="$PDATADIR/runs/synth_1/sources.xml"/>
-  <File Type="RDS-PROPCONSTRS" Name="ALU_drc_synth.rpt"/>
-  <File Type="PA-TCL" Name="ALU.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="Registers_drc_synth.rpt"/>
+  <File Type="PA-TCL" Name="Registers.tcl"/>
   <File Type="RUN-STRAT" Name="$PDATADIR/runs/synth_1/synth_1.psg"/>
-  <File Type="RDS-RDS" Name="ALU.vds"/>
-  <File Type="RDS-UTIL" Name="ALU_utilization_synth.rpt"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="ALU_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="ALU_timing_summary_synth.pb"/>
-  <File Type="VDS-HWDEF" Name="ALU.hwdef"/>
+  <File Type="RDS-RDS" Name="Registers.vds"/>
+  <File Type="RDS-UTIL" Name="Registers_utilization_synth.rpt"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="Registers_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="Registers_timing_summary_synth.pb"/>
+  <File Type="VDS-HWDEF" Name="Registers.hwdef"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/P1D.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/P1C.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -39,12 +45,6 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/P1B_TB.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/P1D.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -88,7 +88,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="ALU"/>
+      <Option Name="TopModule" Val="Registers"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">

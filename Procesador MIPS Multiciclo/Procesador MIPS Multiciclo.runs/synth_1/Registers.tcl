@@ -4,11 +4,8 @@
 
 set_param gui.test TreeTableDev
 debug::add_scope template.lib 1
-set_msg_config -id {Common-41} -limit 4294967295
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 
 create_project -in_memory -part xc7k70tfbg676-1
 set_param project.compositeFile.enableAutoGeneration 0
@@ -17,8 +14,8 @@ set_property webtalk.parent_dir {C:/Users/leand/Documents/GitHub/MIPS-multiciclo
 set_property parent.project_path {C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.xpr} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-read_vhdl -library xil_defaultlib {{C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.srcs/sources_1/new/P1C.vhd}}
-catch { write_hwdef -file ALU.hwdef }
-synth_design -top ALU -part xc7k70tfbg676-1
-write_checkpoint -noxdef ALU.dcp
-catch { report_utilization -file ALU_utilization_synth.rpt -pb ALU_utilization_synth.pb }
+read_vhdl -library xil_defaultlib {{C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.srcs/sources_1/new/P1D.vhd}}
+catch { write_hwdef -file Registers.hwdef }
+synth_design -top Registers -part xc7k70tfbg676-1
+write_checkpoint -noxdef Registers.dcp
+catch { report_utilization -file Registers_utilization_synth.rpt -pb Registers_utilization_synth.pb }

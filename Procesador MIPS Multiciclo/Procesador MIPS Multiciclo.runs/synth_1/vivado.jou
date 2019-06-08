@@ -2,9 +2,9 @@
 # Vivado v2014.4 (64-bit)
 # SW Build 1071353 on Tue Nov 18 18:24:04 MST 2014
 # IP Build 1070531 on Tue Nov 18 01:10:18 MST 2014
-# Start of session at: Tue Jun 04 03:54:02 2019
-# Process ID: 10484
-# Log file: C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.runs/synth_1/ALU.vds
+# Start of session at: Sat Jun 08 19:33:42 2019
+# Process ID: 11004
+# Log file: C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.runs/synth_1/Registers.vds
 # Journal file: C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-source ALU.tcl
+source Registers.tcl

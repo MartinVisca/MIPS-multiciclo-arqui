@@ -128,6 +128,9 @@ architecture Multicycle_MIPS_arch of Multicycle_MIPS is
      --Señales Banco de Registros
      signal outBR1, outBR2  :   std_logic_vector (31 downto 0);
      
+     --Señal Memory
+     signal writeIR : std_logic;
+     
      --Señales registro de instrucciones
      signal outmemory   :   std_logic_vector (31 downto 0);
      signal outIRHigh   :   std_logic_vector (5 downto 0);
@@ -155,7 +158,21 @@ begin
 	RdStb <= MemRead; --Conectada la habilitacion de lectura
 	WrStb <= MemWrite; --Conectada la habilitacion de escritura
 	DataOut <= outBR2; --Salida baja del banco de registros conectada con la escritura del dato en la memoria de datos
-	--DataIn
+	
+	--Enchufe IRWrite al Instruction Register
+	writeIR <= IRWrite;
+	
+	--Instruction Register
+	process(Reset, Clk)
+	begin
+	   if (Reset = '1') then
+            outIRLow <= x"00000000";
+       elsif rising_edge(Clk) then
+            if (TargetWrite = '1') then
+                outIRLow <= DataIn;
+            end if;
+       end if;
+	end process;
 	
 	OutOr <= OutAnd or PcWrite; --Conexion de la puerta OR
 	OutAnd <= Zero and PcWriteCond; --Conexion de la puerta AND
@@ -165,14 +182,13 @@ begin
     
     
     OutMuxTarget <= OutTarget when PCSource = '1' else ALUOut; --Multiplexor siguiente al target
-    --Target
     
     --Instanciacion de la ALU
     ALU : ALU port map (
-        a => OutMuxALUx2;
-        b => OutMuxALUx4;
-        control => OutALUControl;
-        resultado => ALUResult;
+        a => OutMuxALUx2,
+        b => OutMuxALUx4,
+        control => OutALUControl,
+        resultado => ALUResult,
         zero => Zero
     );
     
@@ -185,25 +201,28 @@ begin
                    
     --Instanciacion del banco de registros
     BancoRegistros : Registers port map(
-        clk         => Clk;
-        reset       => Reset;
-        wr          => RegWrite;
-        reg1_rd     => outIRLow (25 downto 21);
-        reg2_rd     => outIRLow (20 downto 16);
-        reg_wr      => OutMuxBancoWrReg;
-        data_wr     => OutMuxBancoWrDt;
-        data1_rd    => outBR1;
+        clk         => Clk,
+        reset       => Reset,
+        wr          => RegWrite,
+        reg1_rd     => outIRLow (25 downto 21),
+        reg2_rd     => outIRLow (20 downto 16),
+        reg_wr      => OutMuxBancoWrReg,
+        data_wr     => OutMuxBancoWrDt,
+        data1_rd    => outBR1,
         data2_rd    => outBR2
     );
     
     OutMuxBancoWrReg <= outIRLow (20 downto 16) when RegDst = '0' else outIRLow (15 downto 11); --Multiplexor que da la entrada reg_wr del banco de registros
     
-    OutMuxBancoWrDt <= AluOut when MemToReg = '0' else DataOut; --Mux que elige entre el resultado de la ALU y el DataOut para darle la entrada a data_wr del banco de registros
+    OutMuxBancoWrDt <= AluOut when MemToReg = '0' else DataIn; --Mux que elige entre el resultado de la ALU y el DataOut para darle la entrada a data_wr del banco de registros
   
     --Extensor de signo
-    OutSignExtend <= (x"0000" and outIRLow (15 downto 0)) when (outIRLow (15) = '0') else  (x"FFFF" and outIRLow (15 downto); 
+    OutSignExtend <= (x"0000" & outIRLow (15 downto 0)) when (outIRLow (15) = '0') else  (x"FFFF" & outIRLow (15 downto 0)); 
     --Si el primer bit (desde la derecha) de la entrada es igual a cero, se hace un and entre la instruccion y una mascara inicializada en ceros.
     --Si es igual a uno, la mascara esta inicializada en FFFF para invertir el numero.
+
+    --Shift Left 2
+    OutSL2 <= OutSignExtend (29 downto 0) & "00";
 
     --Instanciacion de ALU Control
     process (outIRLow (5 downto 0), ALUOp)
@@ -225,17 +244,24 @@ begin
                         OutALUControl <= "000"; 
                 end case;
             when "00" => --Operaciones LW y SW
-                case (outIRLow (5 downto 0)) is
-                    when "100011" => --Load word
-                        OutALUControl <= "";
-                    when "101011" => --Store word
-                        OutALUControl <= "";
-                end case;
+                OutALUControl <= "010";
             when "01" => --Branch on equal
-                OutALUControl <= "";
+                OutALUControl <= "110";
             when others => --Caso 11
                 OutALUControl <= "000";
         end case;
+    end process;
+    
+    --Target
+    process(Reset, Clk)
+    begin
+        if (Reset = '1') then
+            OutTarget <= x"00000000";
+        elsif rising_edge(Clk) then
+            if (TargetWrite = '1') then
+                OutTarget <= AluOut;
+            end if;
+        end if;
     end process;
     
 end Multicycle_MIPS_arch;

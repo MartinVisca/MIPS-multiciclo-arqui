@@ -2,19 +2,16 @@
 # Vivado v2014.4 (64-bit)
 # SW Build 1071353 on Tue Nov 18 18:24:04 MST 2014
 # IP Build 1070531 on Tue Nov 18 01:10:18 MST 2014
-# Start of session at: Tue Jun 04 03:54:02 2019
-# Process ID: 10484
-# Log file: C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.runs/synth_1/ALU.vds
+# Start of session at: Sat Jun 08 19:33:42 2019
+# Process ID: 11004
+# Log file: C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.runs/synth_1/Registers.vds
 # Journal file: C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-source ALU.tcl
+source Registers.tcl
 # set_param gui.test TreeTableDev
 # debug::add_scope template.lib 1
-# set_msg_config -id {Common-41} -limit 4294967295
 # set_msg_config -id {HDL 9-1061} -limit 100000
 # set_msg_config -id {HDL 9-1654} -limit 100000
-# set_msg_config -id {Synth 8-256} -limit 10000
-# set_msg_config -id {Synth 8-638} -limit 10000
 # create_project -in_memory -part xc7k70tfbg676-1
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:kc705:part0:0.9 available at C:/Xilinx/Vivado/2014.4/data/boards/board_parts/kintex7/kc705/0.9/board_part.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:kc705:part0:1.0 available at C:/Xilinx/Vivado/2014.4/data/boards/board_parts/kintex7/kc705/1.0/board_part.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
@@ -28,37 +25,66 @@ WARNING: [Board 49-26] cannot add Board Part xilinx.com:zc706:part0:1.1 availabl
 # set_property parent.project_path {C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.xpr} [current_project]
 # set_property default_lib xil_defaultlib [current_project]
 # set_property target_language VHDL [current_project]
-# read_vhdl -library xil_defaultlib {{C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.srcs/sources_1/new/P1C.vhd}}
-# catch { write_hwdef -file ALU.hwdef }
+# read_vhdl -library xil_defaultlib {{C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.srcs/sources_1/new/P1D.vhd}}
+# catch { write_hwdef -file Registers.hwdef }
 INFO: [Vivado_Tcl 4-279] hardware handoff file cannot be generated as there is no block diagram instance in the design
-# synth_design -top ALU -part xc7k70tfbg676-1
-Command: synth_design -top ALU -part xc7k70tfbg676-1
+# synth_design -top Registers -part xc7k70tfbg676-1
+Command: synth_design -top Registers -part xc7k70tfbg676-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7k70t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k70t'
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:08 ; elapsed = 00:00:37 . Memory (MB): peak = 233.254 ; gain = 74.680
+Starting Synthesize : Time (s): cpu = 00:00:08 ; elapsed = 00:00:14 . Memory (MB): peak = 233.820 ; gain = 74.895
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'ALU' [C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.srcs/sources_1/new/P1C.vhd:18]
-WARNING: [Synth 8-614] signal 'c' is read in the process but is not in the sensitivity list [C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.srcs/sources_1/new/P1C.vhd:22]
-INFO: [Synth 8-256] done synthesizing module 'ALU' (1#1) [C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.srcs/sources_1/new/P1C.vhd:18]
+INFO: [Synth 8-638] synthesizing module 'Registers' [C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.srcs/sources_1/new/P1D.vhd:30]
+INFO: [Synth 8-256] done synthesizing module 'Registers' (1#1) [C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.srcs/sources_1/new/P1D.vhd:30]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:10 ; elapsed = 00:00:41 . Memory (MB): peak = 267.270 ; gain = 108.695
+Finished Synthesize : Time (s): cpu = 00:00:10 ; elapsed = 00:00:17 . Memory (MB): peak = 267.914 ; gain = 108.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:41 . Memory (MB): peak = 267.270 ; gain = 108.695
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:17 . Memory (MB): peak = 267.914 ; gain = 108.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7k70tfbg676-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:41 . Memory (MB): peak = 267.270 ; gain = 108.695
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:17 . Memory (MB): peak = 267.914 ; gain = 108.988
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.srcs/sources_1/new/P1C.vhd:24]
-WARNING: [Synth 8-327] inferring latch for variable 'c_reg' [C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.srcs/sources_1/new/P1C.vhd:40]
+ROM "Regs_reg[0]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[1]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[2]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[3]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[4]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[5]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[6]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[7]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[8]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[9]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[10]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[11]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[12]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[13]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[14]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[15]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[16]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[17]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[18]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[19]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[20]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[21]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[22]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[23]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[24]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[25]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[26]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[27]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[28]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[29]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[30]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[31]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:42 . Memory (MB): peak = 283.555 ; gain = 124.980
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:19 . Memory (MB): peak = 284.496 ; gain = 125.570
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -71,11 +97,9 @@ No constraint files found.
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
-+---Adders : 
-	   3 Input     32 Bit       Adders := 1     
 +---Muxes : 
-	   7 Input     32 Bit        Muxes := 1     
-	   7 Input      1 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 32    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -83,13 +107,11 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
-Module ALU 
+Module Registers 
 Detailed RTL Component Info : 
-+---Adders : 
-	   3 Input     32 Bit       Adders := 1     
 +---Muxes : 
-	   7 Input     32 Bit        Muxes := 1     
-	   7 Input      1 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 32    
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -109,14 +131,46 @@ BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:54 . Memory (MB): peak = 403.504 ; gain = 244.930
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:32 . Memory (MB): peak = 406.188 ; gain = 247.262
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
+ROM "Regs_reg[0]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[1]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[2]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[3]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[4]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[5]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[6]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[7]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[8]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[9]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[10]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[11]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[12]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[13]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[14]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[15]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[16]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[17]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[18]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[19]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[20]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[21]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[22]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[23]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[24]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[25]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[26]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[27]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[28]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[29]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[30]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "Regs_reg[31]" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:54 . Memory (MB): peak = 404.742 ; gain = 246.168
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:33 . Memory (MB): peak = 407.418 ; gain = 248.492
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:54 . Memory (MB): peak = 404.742 ; gain = 246.168
+Finished Parallel Reinference  : Time (s): cpu = 00:00:19 ; elapsed = 00:00:33 . Memory (MB): peak = 407.418 ; gain = 248.492
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -130,45 +184,29 @@ Start RAM, DSP and Shift Register Reporting
 Finished RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 No constraint files found.
-WARNING: [Synth 8-3332] Sequential element (\c_reg[31] ) is unused and will be removed from module ALU.
-WARNING: [Synth 8-3332] Sequential element (\c_reg[30] ) is unused and will be removed from module ALU.
-WARNING: [Synth 8-3332] Sequential element (\c_reg[29] ) is unused and will be removed from module ALU.
-WARNING: [Synth 8-3332] Sequential element (\c_reg[28] ) is unused and will be removed from module ALU.
-WARNING: [Synth 8-3332] Sequential element (\c_reg[27] ) is unused and will be removed from module ALU.
-WARNING: [Synth 8-3332] Sequential element (\c_reg[26] ) is unused and will be removed from module ALU.
-WARNING: [Synth 8-3332] Sequential element (\c_reg[25] ) is unused and will be removed from module ALU.
-WARNING: [Synth 8-3332] Sequential element (\c_reg[24] ) is unused and will be removed from module ALU.
-WARNING: [Synth 8-3332] Sequential element (\c_reg[23] ) is unused and will be removed from module ALU.
-WARNING: [Synth 8-3332] Sequential element (\c_reg[22] ) is unused and will be removed from module ALU.
-WARNING: [Synth 8-3332] Sequential element (\c_reg[21] ) is unused and will be removed from module ALU.
-WARNING: [Synth 8-3332] Sequential element (\c_reg[20] ) is unused and will be removed from module ALU.
-WARNING: [Synth 8-3332] Sequential element (\c_reg[19] ) is unused and will be removed from module ALU.
-WARNING: [Synth 8-3332] Sequential element (\c_reg[18] ) is unused and will be removed from module ALU.
-WARNING: [Synth 8-3332] Sequential element (\c_reg[17] ) is unused and will be removed from module ALU.
-WARNING: [Synth 8-3332] Sequential element (\c_reg[16] ) is unused and will be removed from module ALU.
 ---------------------------------------------------------------------------------
 Start Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:56 . Memory (MB): peak = 440.234 ; gain = 281.660
+Finished Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:40 . Memory (MB): peak = 449.031 ; gain = 290.105
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:56 . Memory (MB): peak = 440.234 ; gain = 281.660
+Finished Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:40 . Memory (MB): peak = 449.031 ; gain = 290.105
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:19 ; elapsed = 00:00:56 . Memory (MB): peak = 440.234 ; gain = 281.660
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:21 ; elapsed = 00:00:40 . Memory (MB): peak = 449.031 ; gain = 290.105
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:19 ; elapsed = 00:00:56 . Memory (MB): peak = 440.234 ; gain = 281.660
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:21 ; elapsed = 00:00:40 . Memory (MB): peak = 449.031 ; gain = 290.105
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:56 . Memory (MB): peak = 440.234 ; gain = 281.660
+Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:40 . Memory (MB): peak = 449.031 ; gain = 290.105
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -180,7 +218,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:56 . Memory (MB): peak = 440.234 ; gain = 281.660
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:41 . Memory (MB): peak = 449.031 ; gain = 290.105
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -204,7 +242,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:57 . Memory (MB): peak = 440.234 ; gain = 281.660
+Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:42 . Memory (MB): peak = 449.031 ; gain = 290.105
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -217,7 +255,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:57 . Memory (MB): peak = 440.234 ; gain = 281.660
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:42 . Memory (MB): peak = 449.031 ; gain = 290.105
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -229,7 +267,7 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:57 . Memory (MB): peak = 440.234 ; gain = 281.660
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:42 . Memory (MB): peak = 449.031 ; gain = 290.105
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RAM, DSP and Shift Register Reporting
@@ -248,50 +286,48 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+-------+------+
-|      |Cell   |Count |
-+------+-------+------+
-|1     |CARRY4 |    12|
-|2     |LUT1   |     1|
-|3     |LUT2   |    30|
-|4     |LUT3   |    32|
-|5     |LUT4   |    38|
-|6     |LUT5   |     4|
-|7     |LUT6   |    48|
-|8     |MUXF7  |     1|
-|9     |LD     |    16|
-|10    |IBUF   |    67|
-|11    |OBUF   |    33|
-+------+-------+------+
++------+------+------+
+|      |Cell  |Count |
++------+------+------+
+|1     |BUFG  |     1|
+|2     |INV   |     1|
+|3     |LUT5  |     2|
+|4     |LUT6  |   608|
+|5     |MUXF7 |   256|
+|6     |MUXF8 |    64|
+|7     |FDCE  |  1024|
+|8     |IBUF  |    50|
+|9     |OBUF  |    64|
++------+------+------+
 
 Report Instance Areas: 
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |   282|
+|1     |top      |       |  2070|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:57 . Memory (MB): peak = 440.234 ; gain = 281.660
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:43 . Memory (MB): peak = 449.031 ; gain = 290.105
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 18 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:32 . Memory (MB): peak = 440.234 ; gain = 260.969
-Synthesis Optimization Complete : Time (s): cpu = 00:00:20 ; elapsed = 00:00:57 . Memory (MB): peak = 440.234 ; gain = 281.660
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:34 . Memory (MB): peak = 449.031 ; gain = 269.211
+Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:43 . Memory (MB): peak = 449.031 ; gain = 290.105
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 95 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 50 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'Registers' is not ideal for floorplanning, since the cellview 'Registers' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 0 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-141] Inserted 0 OBUFs to IO ports without IO buffers.
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 1024 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 16 instances were transformed.
-  LD => LDCE: 16 instances
+No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-13 Infos, 18 Warnings, 0 Critical Warnings and 0 Errors encountered.
+12 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:46 . Memory (MB): peak = 480.809 ; gain = 301.543
-# write_checkpoint -noxdef ALU.dcp
-# catch { report_utilization -file ALU_utilization_synth.rpt -pb ALU_utilization_synth.pb }
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.836 . Memory (MB): peak = 480.809 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Tue Jun 04 03:55:21 2019...
+synth_design: Time (s): cpu = 00:00:24 ; elapsed = 00:00:51 . Memory (MB): peak = 486.801 ; gain = 306.980
+# write_checkpoint -noxdef Registers.dcp
+# catch { report_utilization -file Registers_utilization_synth.rpt -pb Registers_utilization_synth.pb }
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.648 . Memory (MB): peak = 486.801 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sat Jun 08 19:34:46 2019...

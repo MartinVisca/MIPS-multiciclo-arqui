@@ -35,25 +35,14 @@ begin
     begin
         if (reset = '1') then --reset asincrono
             Regs <= (others => x"00000000");    
-        else
-            if (falling_edge(clk)) then
+        elsif (falling_edge(clk)) then
                 if (wr = '1') then
                     Regs(conv_integer(reg_wr)) <= data_wr;
                 end if;
-            else
-                if (reg1_rd /= "0000") then
-                    data1_rd <= Regs(conv_integer(reg1_rd));
-                else
-                    data1_rd <= x"00000000";
-                end if;
-                if (reg2_rd /= "0000") then
-                    data2_rd <= Regs(conv_integer(reg2_rd));
-                else
-                    data2_rd <= x"00000000";
-                end if;
-            end if;
-        end if;          
-            
+        end if;       
     end process;
-
+    
+    data1_rd <= x"00000000" when reg1_rd = x"00000000" else Regs(conv_integer(reg1_rd));
+    data2_rd <= x"00000000" when reg2_rd = x"00000000" else Regs(conv_integer(reg2_rd));
+    
 end Behavioral;

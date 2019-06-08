@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log ALU.vds -m64 -mode batch -messageDb vivado.pb -source ALU.tcl
+EAStep vivado -log Registers.vds -m64 -mode batch -messageDb vivado.pb -source Registers.tcl
