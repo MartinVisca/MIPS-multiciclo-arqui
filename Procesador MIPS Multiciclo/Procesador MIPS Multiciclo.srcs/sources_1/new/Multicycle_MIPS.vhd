@@ -134,7 +134,6 @@ architecture Multicycle_MIPS_arch of Multicycle_MIPS is
      --Señales registro de instrucciones
      signal outmemory   :   std_logic_vector (31 downto 0);
      signal outIRHigh   :   std_logic_vector (5 downto 0);
-     signal outIRLow    :   std_logic_vector (25 downto 0);
      
 begin 
 -- procesos explicitos, implicitos e instanciacion de componentes 
@@ -168,7 +167,7 @@ begin
 	   if (Reset = '1') then
             outmemory <= x"00000000";
        elsif rising_edge(Clk) then
-            if (TargetWrite = '1') then
+            if (writeIR = '1') then
                 outmemory <= DataIn;
             end if;
        end if;
@@ -176,6 +175,8 @@ begin
 	
 	OutOr <= OutAnd or PcWrite; --Conexion de la puerta OR
 	OutAnd <= Zero and PcWriteCond; --Conexion de la puerta AND
+	
+	OutIRHigh <= outmemory(31 downto 26); --Conecto los primeros 6 bits de la salida de Memory al OPCode de la CU
 	
 	PCControl <= OutOr; --Entrada del PC igual a la salida de la puerta OR
     PCin <= OutMuxTarget; --Conexion de la entrada del PC con la siguien direccion en memoria
@@ -206,12 +207,12 @@ begin
     
     OutMuxALUx2 <= PCout when ALUSelA = '0' else outBR1; --Multiplexor de dos entradas que da la entrada "a" a la ALU
     
-    --MUX 4 a 1
+    --MUX 4 a 1 que da la entrada "b" a la ALU
     process (ALUSelB, outBR1, OutSignExtend, OutSL2)
     begin
         case ALUSelB is 
             when "00" =>
-                OutMuxALUx4 <= outBR1;
+                OutMuxALUx4 <= outBR2;
             when "01" =>
                 OutMuxALUx4 <= x"00000004";
             when "10" =>
@@ -226,20 +227,20 @@ begin
         clk         => Clk,
         reset       => Reset,
         wr          => RegWrite,
-        reg1_rd     => outIRLow (25 downto 21),
-        reg2_rd     => outIRLow (20 downto 16),
+        reg1_rd     => outmemory (25 downto 21),
+        reg2_rd     => outmemory (20 downto 16),
         reg_wr      => OutMuxBancoWrReg,
         data_wr     => OutMuxBancoWrDt,
         data1_rd    => outBR1,
         data2_rd    => outBR2
     );
     
-    OutMuxBancoWrReg <= outIRLow (20 downto 16) when RegDst = '0' else outIRLow (15 downto 11); --Multiplexor que da la entrada reg_wr del banco de registros
+    OutMuxBancoWrReg <= outmemory (20 downto 16) when RegDst = '0' else outmemory (15 downto 11); --Multiplexor que da la entrada reg_wr del banco de registros
     
     OutMuxBancoWrDt <= AluOut when MemToReg = '0' else DataIn; --Mux que elige entre el resultado de la ALU y el DataOut para darle la entrada a data_wr del banco de registros
   
     --Extensor de signo
-    OutSignExtend <= (x"0000" & outIRLow (15 downto 0)) when (outIRLow (15) = '0') else  (x"FFFF" & outIRLow (15 downto 0)); 
+    OutSignExtend <= (x"0000" & outmemory (15 downto 0)) when (outmemory (15) = '0') else  (x"FFFF" & outmemory (15 downto 0)); 
     --Si el primer bit (desde la derecha) de la entrada es igual a cero, se hace un and entre la instruccion y una mascara inicializada en ceros.
     --Si es igual a uno, la mascara esta inicializada en FFFF para invertir el numero.
 
@@ -256,11 +257,11 @@ begin
     );    
 
     --Instanciacion de ALU Control
-    process (outIRLow (5 downto 0), ALUOp)
+    process (outmemory (5 downto 0), ALUOp)
     begin
         case (ALUOp) is
             when "10" => --Operaciones tipo R
-                case (outIRLow (5 downto 0)) is
+                case (outmemory (5 downto 0)) is
                     when "100000" => --Suma 
                         OutALUControl <= "010";
                     when "100010" => --Resta
