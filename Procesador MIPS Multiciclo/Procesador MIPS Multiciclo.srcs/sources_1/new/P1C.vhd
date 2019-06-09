@@ -37,8 +37,7 @@ begin
                     res_alu <= x"00000000";
                 end if;
             when "100" =>
-                c <= unsigned(b);
-                res_alu <= std_logic_vector(c sll 16);
+                res_alu <= b(15 downto 0) & x"0000";
             when others =>
                 res_alu <= x"00000000";
         end case;

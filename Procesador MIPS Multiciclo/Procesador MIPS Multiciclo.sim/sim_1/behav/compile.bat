@@ -1,7 +1,7 @@
 @echo off
 set xv_path=C:\\Xilinx\\Vivado\\2014.4\\bin
-echo "xvhdl -m64 -prj ALU_vhdl.prj"
-call %xv_path%/xvhdl  -m64 -prj ALU_vhdl.prj -log compile.log
+echo "xvhdl -m64 -prj MultiCycle_MIPS_tb_vhdl.prj"
+call %xv_path%/xvhdl  -m64 -prj MultiCycle_MIPS_tb_vhdl.prj -log compile.log
 if "%errorlevel%"=="1" goto END
 if "%errorlevel%"=="0" goto SUCCESS
 :END

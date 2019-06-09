@@ -59,10 +59,13 @@ begin
                MemWrite <= '0';
                IRWrite <= '0';
                MemToReg <= '0';
-               next_state <= "0010" when OpCode = "100011" else
-                             "0010" when OpCode = "101011" else
-                             "0110" when OpCode = "000000" else
-                             "1000";
+               case (OpCode) is
+                    when "100011" => next_state <= "0010";
+                    when "101011" => next_state <= "0010";
+                    when "000000" => next_state <= "0110";
+                    when "000100" => next_state <= "1000";
+                    when others => next_state <= "0000";
+               end case;
         when "0010" =>
                PCSource <= '0';
                TargetWrite <= '0';
@@ -78,8 +81,11 @@ begin
                MemWrite <= '0';
                IRWrite <= '0';
                MemToReg <= '0';
-               next_state <= "0011" when OpCode = "100011" else
-                             "0101";
+               case (OpCode) is
+                    when "100011" => next_state <= "0011";
+                    when "101011" => next_state <= "0101";
+                    when others => next_state <= "0000";
+               end case;
         when "0011" =>
                PCSource <= '0';
                TargetWrite <= '0';

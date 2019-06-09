@@ -31,7 +31,7 @@ architecture Behavioral of Registers is
     type t_registro is array(0 to 31) of std_logic_vector (31 downto 0);
     signal Regs: t_registro;
 begin
-    process(wr, clk, reset, reg1_rd, reg2_rd, reg_wr)
+    process(clk, reset)
     begin
         if (reset = '1') then --reset asincrono
             Regs <= (others => x"00000000");    
