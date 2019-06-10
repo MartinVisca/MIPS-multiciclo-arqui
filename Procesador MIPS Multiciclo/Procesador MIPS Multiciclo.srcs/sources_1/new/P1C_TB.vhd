@@ -1,4 +1,3 @@
-
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -15,9 +14,9 @@ architecture tb of tb_ALU is
               zero      : out std_logic);
     end component;
 
-    signal a         : std_logic_vector (31 downto 0);
-    signal b         : std_logic_vector (31 downto 0);
-    signal control   : std_logic_vector (2 downto 0);
+    signal a         : std_logic_vector (31 downto 0) := (others => '0');
+    signal b         : std_logic_vector (31 downto 0) := (others => '0');
+    signal control   : std_logic_vector (2 downto 0) := (others => '0');
     signal resultado : std_logic_vector (31 downto 0);
     signal zero      : std_logic;
 
@@ -32,22 +31,29 @@ begin
 
     stimuli : process
     begin
-        -- EDIT Adapt initialization as needed
-        a <= (others => '0');
-        b <= (others => '0');
-        control <= (others => '0');
-
-        -- EDIT Add stimuli here
-        a <= x"00000001";
-        b <= x"00000001";
+        
+        a <= x"00000010";
+        b <= x"00000011";
+        
+        control <= "000";
+        wait for 100 ns;
+        
+        control <= "001";
+        wait for 100 ns;
+        
         control <= "010";
         wait for 100 ns;
         
+        control <= "110";
+        wait for 100 ns;
         
+        control <= "100";
+        wait for 100 ns;
         
+        control <= "111";
+        wait for 100 ns;
+ 
         
-        
-        wait;
     end process;
 
 end tb;

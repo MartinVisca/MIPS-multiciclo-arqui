@@ -1,108 +1,96 @@
-
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity P1C_TB is
-end P1C_TB;
+entity tb_Registers is
+end tb_Registers;
 
+architecture tb of tb_Registers is
 
-architecture PRACTICA_I of P1C_TB is
-	-- Component declaration of the tested unit
-	component shift
-	port(
-		d : in std_logic_vector(31 downto 0);
-		dir : in std_logic;
-		load : in std_logic;
-		clk : in std_logic;
-		reset : in std_logic;
-		q : out std_logic_vector(31 downto 0) );
-	end component;
+    component Registers
+        port (clk      : in std_logic;
+              reset    : in std_logic;
+              wr       : in std_logic;
+              reg1_rd  : in std_logic_vector (4 downto 0);
+              reg2_rd  : in std_logic_vector (4 downto 0);
+              reg_wr   : in std_logic_vector (4 downto 0);
+              data_wr  : in std_logic_vector (31 downto 0);
+              data1_rd : out std_logic_vector (31 downto 0);
+              data2_rd : out std_logic_vector (31 downto 0));
+    end component;
 
-	-- Stimulus signals - signals mapped to the input and inout ports of tested entity
-	signal d : std_logic_vector(31 downto 0);
-	signal dir : std_logic;
-	signal load : std_logic;
-	signal clk : std_logic;
-	signal reset : std_logic;
-	-- Observed signals - signals mapped to the output ports of tested entity
-	signal q : std_logic_vector(31 downto 0);  
-	
-	signal end_sim : boolean := false;
-
-	constant clk_period: time := 10 ns;	 
-	
-	constant zeros31: std_logic_vector(30 downto 0) := (others => '0');
+    signal clk      : std_logic;
+    signal reset    : std_logic;
+    signal wr       : std_logic;
+    signal reg1_rd  : std_logic_vector (4 downto 0);
+    signal reg2_rd  : std_logic_vector (4 downto 0);
+    signal reg_wr   : std_logic_vector (4 downto 0);
+    signal data_wr  : std_logic_vector (31 downto 0);
+    signal data1_rd : std_logic_vector (31 downto 0);
+    signal data2_rd : std_logic_vector (31 downto 0);
 
 begin
 
-	-- Unit Under Test port map
-	UUT : shift
-		port map (
-			d => d,
-			dir => dir,
-			load => load,
-			clk => clk,
-			reset => reset,
-			q => q
-		);
+    dut : Registers
+    port map (clk      => clk,
+              reset    => reset,
+              wr       => wr,
+              reg1_rd  => reg1_rd,
+              reg2_rd  => reg2_rd,
+              reg_wr   => reg_wr,
+              data_wr  => data_wr,
+              data1_rd => data1_rd,
+              data2_rd => data2_rd);
 
-	process begin
-		while not end_sim loop
-			clk <= '0';
-			wait for clk_period/2;
-			clk <= '1';
-			wait for clk_period/2;
-		end loop;
-		
-		wait;
-	end process;			   
-	
+    stimuli : process
+    begin
 
-	process
-	begin
-		reset <= '0';
-		d <= x"00000001";
-		load <= '1';
-		dir <= '0'; -- desplazamiento a izquierda
-		
-		-- Prueba de LOAD
-		wait for clk_period;
-	   assert q = x"00000001" report "No funcionó el LOAD." severity failure; 				
-		
-		-- Prueba de desplazamiento a izquierda
-		load <= '0';  
-		for i in 1 to 31 loop
-			wait for clk_period;
-	    	assert q(i) = '1' report "No funcionó el SHIFT a izquierda." severity failure; 				
-			assert (q(31 downto i+1) & q(i-1 downto 0)) = zeros31 report "No funcionó el SHIFT a izquierda" severity failure;
-		end loop; 
-		
-		-- Prueba de desplazamiento a derecha
-		dir <= '1'; -- desplazamiento a derecha
-		for i in 30 downto 0 loop
-			wait for clk_period;
-	    	assert q(i) = '1' report "No funcionó el SHIFT a derecha." severity failure; 				
-			assert (q(31 downto i+1) & q(i-1 downto 0)) = zeros31 report "No funcionó el SHIFT a derecha" severity failure;
-		end loop;							 
-		
-		-- Prueba Reset
-		reset <= '1';															
-		wait for clk_period;
-	   assert q = x"00000000" report "No funcionó el RESET." severity failure; 				
-		
-		reset <= '0';															
-		d <= x"AAAAAAAA";
-		load <= '1';
-		-- Prueba de LOAD
-		wait for clk_period;
-	   assert q = x"AAAAAAAA" report "No funcionó el LOAD." severity failure; 				
-		
-		end_sim <= true;
-		wait;
-		
-	end process;
+        clk <= '0';
+        reset <= '0';
+        wr <= '0';
+        reg1_rd <= (others => '0');
+        reg2_rd <= (others => '0');
+        reg_wr <= (others => '0');
+        data_wr <= (others => '0');
+        
+        clk <= '0';
+        wr <= '1';
+        data_wr <= x"00000100";
+        reg_wr <= "00100";
+        wait for 100ns;
+        
+        clk <= '1';
+        wr <= '0';
+        wait for 100 ns;
+        
+        clk <= '0';
+        wr <= '1';
+        data_wr <= x"00000100";
+        reg_wr <= "00100";
+        wait for 100ns;
+        
+        clk <= '1';
+        wr <= '0';
+        wait for 100 ns;
+        
+        clk <= '0';
+        wr <= '1';
+        data_wr <= x"00010001";
+        reg_wr <= "11000";
+        wait for 100ns;
+        
+        Reset <= '1';
+        
+        clk <= '1';
+        wr <= '0';
+        wait for 100 ns;
+        
+        clk <= '0';
+        wr <= '1';
+        data_wr <= x"00000011";
+        reg_wr <= "00001";
+        wait for 100ns;
+        
+        
+    end process;
 
-end PRACTICA_I;
-
-
-
+end tb;

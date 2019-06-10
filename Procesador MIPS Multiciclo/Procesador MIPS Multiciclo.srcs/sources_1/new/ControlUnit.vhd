@@ -59,7 +59,7 @@ begin
                MemWrite <= '0';
                IRWrite <= '0';
                MemToReg <= '0';
-               case (OpCode) is
+               case OpCode is
                     when "100011" => next_state <= "0010";
                     when "101011" => next_state <= "0010";
                     when "000000" => next_state <= "0110";
@@ -81,17 +81,17 @@ begin
                MemWrite <= '0';
                IRWrite <= '0';
                MemToReg <= '0';
-               case (OpCode) is
+               case OpCode is
                     when "100011" => next_state <= "0011";
                     when "101011" => next_state <= "0101";
                     when others => next_state <= "0000";
                end case;
         when "0011" =>
                PCSource <= '0';
-               TargetWrite <= '0';
+               TargetWrite <= '1';
                AluOp <= "00";
-               AluSelA <= '0';
-               AluSelB <= "00";
+               AluSelA <= '1';
+               AluSelB <= "10";
                RegWrite <= '0';
                RegDst <= '0';
                PCWrite <= '0';
@@ -100,30 +100,30 @@ begin
                MemRead <= '1';
                MemWrite <= '0';
                IRWrite <= '0';
-               MemToReg <= '0';
+               MemToReg <= '1';
                next_state <= "0100";
         when "0100" =>
                PCSource <= '0';
                TargetWrite <= '0';
                AluOp <= "00";
-               AluSelA <= '0';
-               AluSelB <= "00";
+               AluSelA <= '1';
+               AluSelB <= "10";
                RegWrite <= '1';
-               RegDst <= '1';
+               RegDst <= '0';
                PCWrite <= '0';
                PCWriteCond <= '0';
-               IorD <= '0';
-               MemRead <= '0';
+               IorD <= '1';
+               MemRead <= '1';
                MemWrite <= '0';
                IRWrite <= '0';
-               MemToReg <= '0';
+               MemToReg <= '1';
 			   next_state <= "0000"; 	
         when "0101" =>
                PCSource <= '0';
                TargetWrite <= '0';
                AluOp <= "00";
-               AluSelA <= '0';
-               AluSelB <= "00";
+               AluSelA <= '1';
+               AluSelB <= "10";
                RegWrite <= '0';
                RegDst <= '0';
                PCWrite <= '0';
@@ -153,8 +153,8 @@ begin
         when "0111" =>
                PCSource <= '0';
                TargetWrite <= '0';
-               AluOp <= "00";
-               AluSelA <= '0';
+               AluOp <= "10";
+               AluSelA <= '1';
                AluSelB <= "00";
                RegWrite <= '1';
                RegDst <= '1';

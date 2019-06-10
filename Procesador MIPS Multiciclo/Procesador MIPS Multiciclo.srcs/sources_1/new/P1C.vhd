@@ -17,7 +17,6 @@ end ALU;
 
 architecture Behavioral of ALU is
     signal res_alu : STD_LOGIC_VECTOR (31 DOWNTO 0);
-    signal c : unsigned (31 downto 0);
 begin
     process (control, a, b)
     begin

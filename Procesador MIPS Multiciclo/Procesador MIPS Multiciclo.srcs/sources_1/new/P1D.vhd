@@ -1,17 +1,7 @@
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity Registers is
     Port ( 
@@ -42,7 +32,7 @@ begin
         end if;       
     end process;
     
-    data1_rd <= x"00000000" when reg1_rd = x"00000000" else Regs(conv_integer(reg1_rd));
-    data2_rd <= x"00000000" when reg2_rd = x"00000000" else Regs(conv_integer(reg2_rd));
+    data1_rd <= x"00000000" when reg1_rd = "00000" else Regs(conv_integer(reg1_rd));
+    data2_rd <= x"00000000" when reg2_rd = "00000" else Regs(conv_integer(reg2_rd));
     
 end Behavioral;

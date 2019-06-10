@@ -79,7 +79,7 @@ begin
 
 	Instruction_Mem_inst : memory
 	generic map (
-	  C_ELF_FILENAME_LOW     => "C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.srcs/sources_1/new/program1", --Hay que poner la direccion donde se encuentra el archivo
+	  C_ELF_FILENAME_LOW     => "C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.srcs/sources_1/new/program1_multicycle", --Hay que poner la direccion donde se encuentra el archivo
 	  C_ELF_FILENAME_HIGH     => "C:/Users/leand/Documents/GitHub/MIPS-multiciclo-arqui/Procesador MIPS Multiciclo/Procesador MIPS Multiciclo.srcs/sources_1/new/data", --Hay que poner la direccion donde se encuentra el archivo
       C_MEM_SIZE         => 2048,
       C_MEM_HIGH_OFFSET => 1024

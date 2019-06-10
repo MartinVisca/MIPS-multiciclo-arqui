@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="MultiCycle_MIPS_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="MultiCycle_MIPS_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="20" />
+   <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/Clk" type="logic">
+      <obj_property name="ElementShortName">Clk</obj_property>
+      <obj_property name="ObjectShortName">Clk</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/Reset" type="logic">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/Addr" type="array">
+      <obj_property name="ElementShortName">Addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Addr[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/RdStb" type="logic">
+      <obj_property name="ElementShortName">RdStb</obj_property>
+      <obj_property name="ObjectShortName">RdStb</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/WrStb" type="logic">
+      <obj_property name="ElementShortName">WrStb</obj_property>
+      <obj_property name="ObjectShortName">WrStb</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/DataOut" type="array">
+      <obj_property name="ElementShortName">DataOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DataOut[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/DataIn" type="array">
+      <obj_property name="ElementShortName">DataIn[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DataIn[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/tper_clk" type="other">
+      <obj_property name="ElementShortName">tper_clk</obj_property>
+      <obj_property name="ObjectShortName">tper_clk</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/tdelay" type="other">
+      <obj_property name="ElementShortName">tdelay</obj_property>
+      <obj_property name="ObjectShortName">tdelay</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/wr" type="logic">
+      <obj_property name="ElementShortName">wr</obj_property>
+      <obj_property name="ObjectShortName">wr</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/UnidadControl/state" type="array">
+      <obj_property name="ElementShortName">state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">state[3:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/reg1_rd" type="array">
+      <obj_property name="ElementShortName">reg1_rd[4:0]</obj_property>
+      <obj_property name="ObjectShortName">reg1_rd[4:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/reg2_rd" type="array">
+      <obj_property name="ElementShortName">reg2_rd[4:0]</obj_property>
+      <obj_property name="ObjectShortName">reg2_rd[4:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/reg_wr" type="array">
+      <obj_property name="ElementShortName">reg_wr[4:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_wr[4:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/data_wr" type="array">
+      <obj_property name="ElementShortName">data_wr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_wr[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/data1_rd" type="array">
+      <obj_property name="ElementShortName">data1_rd[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data1_rd[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/data2_rd" type="array">
+      <obj_property name="ElementShortName">data2_rd[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data2_rd[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs" type="array">
+      <obj_property name="ElementShortName">Regs[0:31][31:0]</obj_property>
+      <obj_property name="ObjectShortName">Regs[0:31][31:0]</obj_property>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[0]" type="array">
+         <obj_property name="ElementShortName">[0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[0][31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[1]" type="array">
+         <obj_property name="ElementShortName">[1][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[1][31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[2]" type="array">
+         <obj_property name="ElementShortName">[2][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[2][31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[3]" type="array">
+         <obj_property name="ElementShortName">[3][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[3][31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[4]" type="array">
+         <obj_property name="ElementShortName">[4][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[4][31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[5]" type="array">
+         <obj_property name="ElementShortName">[5][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[5][31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[6]" type="array">
+         <obj_property name="ElementShortName">[6][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[6][31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[7]" type="array">
+         <obj_property name="ElementShortName">[7][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[7][31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[8]" type="array">
+         <obj_property name="ElementShortName">[8][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[8][31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[9]" type="array">
+         <obj_property name="ElementShortName">[9][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[9][31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[10]" type="array">
+         <obj_property name="ElementShortName">[10][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[10][31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[11]" type="array">
+         <obj_property name="ElementShortName">[11][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[11][31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[12]" type="array">
+         <obj_property name="ElementShortName">[12][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[12][31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[13]" type="array">
+         <obj_property name="ElementShortName">[13][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[13][31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[14]" type="array">
+         <obj_property name="ElementShortName">[14][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[14][31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[15]" type="array">
+         <obj_property name="ElementShortName">[15][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[15][31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[16]" type="array">
+         <obj_property name="ElementShortName">[16][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[16][31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[17]" type="array">
+         <obj_property name="ElementShortName">[17][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[17][31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[18]" type="array">
+         <obj_property name="ElementShortName">[18][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[18][31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[19]" type="array">
+         <obj_property name="ElementShortName">[19][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[19][31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[20]" type="array">
+         <obj_property name="ElementShortName">[20][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[20][31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[21]" type="array">
+         <obj_property name="ElementShortName">[21][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[21][31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[22]" type="array">
+         <obj_property name="ElementShortName">[22][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[22][31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[23]" type="array">
+         <obj_property name="ElementShortName">[23][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[23][31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[24]" type="array">
+         <obj_property name="ElementShortName">[24][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[24][31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[25]" type="array">
+         <obj_property name="ElementShortName">[25][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[25][31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[26]" type="array">
+         <obj_property name="ElementShortName">[26][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[26][31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[27]" type="array">
+         <obj_property name="ElementShortName">[27][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[27][31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[28]" type="array">
+         <obj_property name="ElementShortName">[28][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[28][31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[29]" type="array">
+         <obj_property name="ElementShortName">[29][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[29][31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[30]" type="array">
+         <obj_property name="ElementShortName">[30][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[30][31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/MultiCycle_MIPS_tb/UUT/BancoRegistros/Regs[31]" type="array">
+         <obj_property name="ElementShortName">[31][31:0]</obj_property>
+         <obj_property name="ObjectShortName">Regs[31][31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

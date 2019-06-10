@@ -101,7 +101,6 @@ architecture Multicycle_MIPS_arch of Multicycle_MIPS is
      signal OutMuxBancoWrDt:    std_logic_vector (31 downto 0);
      signal OutMuxALUx2:        std_logic_vector (31 downto 0);
      signal OutMuxALUx4:        std_logic_vector (31 downto 0);
-     signal OutMuxTarget:       std_logic_vector (31 downto 0);
      
      --Señal de la extension de signo
      signal OutSignExtend:      std_logic_vector (31 downto 0);
@@ -121,9 +120,6 @@ architecture Multicycle_MIPS_arch of Multicycle_MIPS is
      
      --Señal puerta AND
      signal OutAND:             std_logic;
-     
-     --Señal puerta OR
-     signal OutOr:              std_logic;
      
      --Señales Banco de Registros
      signal outBR1, outBR2  :   std_logic_vector (31 downto 0);
@@ -172,14 +168,13 @@ begin
             end if;
        end if;
 	end process;
-	
-	OutOr <= OutAnd or PcWrite; --Conexion de la puerta OR
-	OutAnd <= Zero and PcWriteCond; --Conexion de la puerta AND
-	
+
+	OutAnd <= Zero and PCWriteCond; --Conexion de la puerta AND
+    PCControl <= OutAnd or PCWrite; --Conexion de la puerta OR
+    	
 	OutIRHigh <= outmemory(31 downto 26); --Conecto los primeros 6 bits de la salida de Memory al OPCode de la CU
 	
-	PCControl <= OutOr; --Entrada del PC igual a la salida de la puerta OR
-    PCin <= OutMuxTarget; --Conexion de la entrada del PC con la siguien direccion en memoria
+    PCin <= OutTarget when PCSource = '1' else ALUOut; --Multiplexor siguiente al target
     
     UnidadControl : ControlUnit port map(
         clk => Clk,
@@ -199,16 +194,12 @@ begin
         MemWrite => MemWrite,
         IRWrite => IRWrite,
         MemToReg => MemToReg
-    );    
-        
-    
-    OutMuxTarget <= OutTarget when PCSource = '1' else ALUOut; --Multiplexor siguiente al target
-    
+    );        
     
     OutMuxALUx2 <= PCout when ALUSelA = '0' else outBR1; --Multiplexor de dos entradas que da la entrada "a" a la ALU
     
     --MUX 4 a 1 que da la entrada "b" a la ALU
-    process (ALUSelB, outBR1, OutSignExtend, OutSL2)
+    process (ALUSelB)
     begin
         case ALUSelB is 
             when "00" =>
@@ -221,6 +212,10 @@ begin
                 OutMuxALUx4 <= OutSL2;
          end case;
     end process;
+    
+    OutMuxBancoWrReg <= outmemory (20 downto 16) when RegDst = '0' else outmemory (15 downto 11); --Multiplexor que da la entrada reg_wr del banco de registros
+        
+    OutMuxBancoWrDt <= AluOut when MemToReg = '0' else DataIn; --Mux que elige entre el resultado de la ALU y el DataOut para darle la entrada a data_wr del banco de registros
                    
     --Instanciacion del banco de registros
     BancoRegistros : Registers port map(
@@ -234,10 +229,6 @@ begin
         data1_rd    => outBR1,
         data2_rd    => outBR2
     );
-    
-    OutMuxBancoWrReg <= outmemory (20 downto 16) when RegDst = '0' else outmemory (15 downto 11); --Multiplexor que da la entrada reg_wr del banco de registros
-    
-    OutMuxBancoWrDt <= AluOut when MemToReg = '0' else DataIn; --Mux que elige entre el resultado de la ALU y el DataOut para darle la entrada a data_wr del banco de registros
   
     --Extensor de signo
     OutSignExtend <= (x"0000" & outmemory (15 downto 0)) when (outmemory (15) = '0') else  (x"FFFF" & outmemory (15 downto 0)); 
